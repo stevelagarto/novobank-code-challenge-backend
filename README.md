@@ -1,2 +1,2 @@
-# novobank_code_challenge
+# Novobank Code Challenge
 Simple CRUD Front End and Back End Project
