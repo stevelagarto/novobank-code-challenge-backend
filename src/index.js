@@ -4,7 +4,7 @@ const express = require('express')
 const app = express()
 // const bodyParser = require('body-parser');
 
-const router = require('./router.js')
+const router = require('./router')
 
 // app.use(bodyParser.json());
 

@@ -1,4 +1,4 @@
-const contact = require('../models/contact.js')
+const contact = require('../models/contact')
 
 exports.getAll = (req, res) => {
   res.json(contact.getAll())
