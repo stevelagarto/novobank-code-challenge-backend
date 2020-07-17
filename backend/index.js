@@ -4,14 +4,13 @@ const express = require('express')
 const app = express()
 // const bodyParser = require('body-parser');
 
-// const conf = require('./config.js');
-// const router = require('./router.js');
+const router = require('./router.js')
 
-// app.use(express.static(conf.clientPath));
 // app.use(bodyParser.json());
-// app.use(router);
 
-  const port = 3000
+app.use(router)
+
+const port = 3000
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`)
