@@ -1,0 +1,75 @@
+{
+  "name": "novobank_code_challenge",
+  "version": "1.0.0",
+  "description": "Simple CRUD Front End and Back End Project",
+  "main": "index.js",
+  "scripts": {
+    "start-back": "nodemon --exec babel-node -r ./node_modules/dotenv/config backend/index.js",
+    "start-front": "",
+    "lint": "standard | snazzy",
+    "lint-fix": "standard --fix",
+    "test": "NODE_ENV=test TZ=UTC jest --passWithNoTests --coverage",
+    "test:watch": "NODE_ENV=test TZ=UTC jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stevelagarto/novobank_code_challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stevelagarto/novobank_code_challenge/issues"
+  },
+  "homepage": "https://github.com/stevelagarto/novobank_code_challenge#readme",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.6",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-root-import": "^6.5.0",
+    "babel-polyfill": "^6.26.0",
+    "eslint": "^7.4.0",
+    "eslint-plugin-react": "^7.20.3",
+    "husky": "^4.2.5",
+    "jest": "^26.0.1",
+    "lint-staged": "^10.2.6",
+    "nodemon": "^2.0.4",
+    "snazzy": "^8.0.0",
+    "standard": "^14.3.4"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "lodash": "^4.17.15",
+    "node-fetch": "^2.6.0",
+    "prettier": "^2.0.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "standard --fix",
+      "git add"
+    ]
+  },
+  "standard": {
+    "parser": "babel-eslint",
+    "env": [
+      "jest"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "backend/**/*.{js,jsx}",
+      "frontend/**/*.{js,jsx}"
+    ],
+    "setupFiles": [
+      "<rootDir>/setupTests.js"
+    ],
+    "testMatch": [
+      "**/*.(spec).(js)"
+    ]
+  }
+}
