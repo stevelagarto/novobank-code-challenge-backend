@@ -2,11 +2,11 @@
 
 const express = require('express')
 const app = express()
-// const bodyParser = require('body-parser');
+const bodyParser = require('body-parser')
 
 const router = require('./router')
 
-// app.use(bodyParser.json());
+app.use(bodyParser.json())
 
 app.use(router)
 
