@@ -2,10 +2,12 @@ const { Contact } = require('../models')
 
 exports.getAll = async (req, res) => {
   try {
-    const contacts = await Contact.findAll()
-    return res.status(200).json({ contacts })
+    const listOFContacts = await Contact.findAll()
+    res.status(200)
+    return res.json({ contacts: listOFContacts })
   } catch (error) {
-    return res.status(500).json({ error: error.message })
+    res.status(500)
+    return res.json({ error: error.message })
   }
 }
 

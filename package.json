@@ -7,7 +7,7 @@
     "start": "nodemon ./node_modules/dotenv/config src/index.js",
     "lint": "eslint",
     "lint-fix": "eslint --fix",
-    "test": "NODE_ENV=test TZ=UTC jest --coverage",
+    "test": "NODE_ENV=test TZ=UTC jest",
     "test:watch": "NODE_ENV=test TZ=UTC jest --watch"
   },
   "repository": {
@@ -30,6 +30,7 @@
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-standard": "^4.0.1",
     "husky": "^4.2.5",
+    "iconv-lite": "^0.6.2",
     "jest": "^26.0.1",
     "lint-staged": "^10.2.6",
     "mysql2": "^2.1.0",
@@ -49,14 +50,6 @@
     "*.{js,jsx}": [
       "eslint --fix",
       "git add"
-    ]
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "**/*.{js,jsx}"
-    ],
-    "testMatch": [
-      "**/*.(spec).(js)"
     ]
   }
 }
