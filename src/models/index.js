@@ -1,11 +1,11 @@
 'use strict'
-const { DB_NAME, ADMIN_DB, PASS_DB, HOST, DIALECT_DB } = require('./config')
+const { DB_NAME, ADMIN_DB, PASS_DB, HOST } = require('./config')
 const Sequelize = require('sequelize')
 const ContactModel = require('./contact')
 
 const sequelize = new Sequelize(DB_NAME, ADMIN_DB, PASS_DB, {
   host: HOST,
-  dialect: DIALECT_DB,
+  dialect: 'mysql',
   pool: {
     max: 10,
     min: 0,

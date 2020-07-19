@@ -5,3 +5,9 @@ exports.res = {
 }
 exports.contacts = [{ name: 'jhon' }]
 exports.errorMessage = 'Error Message'
+exports.contact = {
+  first_name: 'Me',
+  last_name: 'You',
+  email: 'email@email.com',
+  phone: 12345677
+}

@@ -1,7 +1,7 @@
 const { Contact } = require('../../models')
 const stubs = require('./stubs')
 
-const { findAll } = require('../contact')
+const { findAll, createContact } = require('../contact')
 
 jest.mock('../../models')
 
@@ -17,7 +17,7 @@ describe('Contact Controller', () => {
 
       expect(Contact.findAll).toHaveBeenCalled()
       expect(stubs.res.status).toHaveBeenCalledWith(200)
-      expect(stubs.res.json).toHaveBeenCalledWith({ contacts: stubs.contacts })
+      expect(stubs.res.json).toHaveBeenCalledWith(stubs.contacts)
     })
     it('should return 500 status and error response', async () => {
       Contact.findAll.mockImplementation(() => Promise.reject(new Error(stubs.errorMessage)))
@@ -29,6 +29,21 @@ describe('Contact Controller', () => {
     })
   })
   describe('create action', () => {
+    it('should return 201 status and created contact', async () => {
+      Contact.create.mockImplementation(() => Promise.resolve(stubs.contact))
+      await createContact(stubs.req, stubs.res)
 
+      expect(Contact.create).toHaveBeenCalledWith(stubs.req.body)
+      expect(stubs.res.status).toHaveBeenCalledWith(201)
+      expect(stubs.res.json).toHaveBeenCalledWith(stubs.contact)
+    })
+    it('should return 500 status and error response', async () => {
+      Contact.create.mockImplementation(() => Promise.reject(new Error(stubs.errorMessage)))
+      await createContact(stubs.req, stubs.res)
+
+      expect(Contact.create).toHaveBeenCalledWith(stubs.req.body)
+      expect(stubs.res.status).toHaveBeenCalledWith(500)
+      expect(stubs.res.json).toHaveBeenCalledWith({ error: stubs.errorMessage })
+    })
   })
 })
