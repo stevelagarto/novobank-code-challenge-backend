@@ -1,24 +1,21 @@
-const db = require('../models')
+const { Contact } = require('../models')
 
 exports.getAll = async (req, res) => {
   try {
-    res.body = await db.Contact.findAll()
+    const contacts = await Contact.findAll()
+    return res.status(200).json({ contacts })
   } catch (error) {
-    res.status = 500
+    return res.status(500).json({ error: error.message })
   }
 }
 
 exports.post = async (req, res) => {
-  const contact = req.body
   try {
-    await db.Contact.create({
-      first_name: contact.first_name,
-      last_name: contact.last_name,
-      email: contact.email,
-      phone: contact.phone
+    const post = await Contact.create(req.body)
+    return res.status(201).json({
+      post
     })
-    res.status = 200
   } catch (error) {
-    res.status = 500
+    return res.status(500).json({ error: error.message })
   }
 }

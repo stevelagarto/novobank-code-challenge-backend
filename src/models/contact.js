@@ -1,10 +1,6 @@
 'use strict'
 
 module.exports = (sequelize, DataTypes) => sequelize.define('Contact', {
-  id: {
-    type: DataTypes.INT,
-    allowNull: false
-  },
   first_name: {
     type: DataTypes.STRING,
     allowNull: false
