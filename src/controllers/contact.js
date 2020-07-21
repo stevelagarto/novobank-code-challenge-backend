@@ -26,7 +26,7 @@ exports.createContact = async (req, res) => {
 
     return res.json(createdContact)
   } catch (error) {
-    res.status(500)
+    res.status(400)
 
     return res.json({ error: error.message })
   }
