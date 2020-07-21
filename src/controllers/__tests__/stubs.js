@@ -11,3 +11,4 @@ exports.contact = {
   email: 'email@email.com',
   phone: 12345677
 }
+exports.emailExistsErrorMessage = 'Email already exists'
