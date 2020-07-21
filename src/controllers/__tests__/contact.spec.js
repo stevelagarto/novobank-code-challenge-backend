@@ -20,12 +20,16 @@ describe('Contact Controller', () => {
       expect(stubs.res.json).toHaveBeenCalledWith(stubs.contacts)
     })
     it('should return 500 status and error response', async () => {
-      Contact.findAll.mockImplementation(() => Promise.reject(new Error(stubs.errorMessage)))
+      Contact.findAll.mockImplementation(() =>
+        Promise.reject(new Error(stubs.errorMessage))
+      )
       await findAll(stubs.req, stubs.res)
 
       expect(Contact.findAll).toHaveBeenCalled()
       expect(stubs.res.status).toHaveBeenCalledWith(500)
-      expect(stubs.res.json).toHaveBeenCalledWith({ error: stubs.errorMessage })
+      expect(stubs.res.json).toHaveBeenCalledWith({
+        error: stubs.errorMessage
+      })
     })
   })
   describe('create action', () => {
@@ -40,18 +44,24 @@ describe('Contact Controller', () => {
     })
     it('should return 400 status and error response', async () => {
       Contact.findOne.mockImplementation(() => Promise.resolve(null))
-      Contact.create.mockImplementation(() => Promise.reject(new Error(stubs.errorMessage)))
+      Contact.create.mockImplementation(() =>
+        Promise.reject(new Error(stubs.errorMessage))
+      )
       await createContact(stubs.req, stubs.res)
 
       expect(Contact.create).toHaveBeenCalledWith(stubs.req.body)
       expect(stubs.res.status).toHaveBeenCalledWith(400)
-      expect(stubs.res.json).toHaveBeenCalledWith({ error: stubs.errorMessage })
+      expect(stubs.res.json).toHaveBeenCalledWith({
+        error: stubs.errorMessage
+      })
     })
     it('should return 400 status and email exists error message if email exists', async () => {
       Contact.findOne.mockImplementation(() => Promise.resolve(stubs.contact))
       await createContact(stubs.req, stubs.res)
       expect(stubs.res.status).toHaveBeenCalledWith(400)
-      expect(stubs.res.json).toHaveBeenCalledWith({ error: stubs.emailExistsErrorMessage })
+      expect(stubs.res.json).toHaveBeenCalledWith({
+        error: stubs.emailExistsErrorMessage
+      })
     })
   })
 })

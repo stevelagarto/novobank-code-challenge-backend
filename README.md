@@ -1,6 +1,9 @@
-# Novobank Code Challenge
+# Novobank Code Challenge BACK END
 
-Simple CRUD Front End and Back End Project
+Back End for a simple Phone Book
+
+You can find the Back End repository at [https://github.com/stevelagarto/novobank-code-challenge-frontend](https://github.com/stevelagarto/novobank-code-challenge-frontend)
+
 
 ## Backend Tech
 - express (server)
@@ -13,11 +16,13 @@ Simple CRUD Front End and Back End Project
 Description | Command
 ------------| -------
 Install dependencies | yarn
-Run server | yarn run start
-Run linter | yarn run lint
-Fix linter errors | yarn run lint-fix
-Run tests | yarn run test
-Run tests with watch | yarn run test:
+Run server | yarn start
+Run linter | yarn lint
+Fix linter errors | yarn lint-fix
+Run tests | yarn test
+Run tests with watch | yarn test:watch
+
+Back End server runs in PORT:3000 by default
 
 # Database Structure
 

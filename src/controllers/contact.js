@@ -13,9 +13,16 @@ exports.findAll = async (req, res) => {
 
 exports.createContact = async (req, res) => {
   try {
-    const findEmail = await Contact.findOne({ where: { email: req.body.email } })
+    const findEmail = await Contact.findOne({
+      where: { email: req.body.email }
+    })
 
-    if (req.body.first_name === '' || req.body.last_name === '' || req.body.email === '' || req.body.phone === '') throw new Error('All fields must have a value')
+    if (
+      req.body.first_name === '' ||
+      req.body.last_name === '' ||
+      req.body.email === '' ||
+      req.body.phone === ''
+    ) { throw new Error('All fields must have a value') }
 
     if (findEmail !== null) {
       res.status(400)
