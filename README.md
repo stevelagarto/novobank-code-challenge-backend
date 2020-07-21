@@ -10,6 +10,13 @@ Simple CRUD Front End and Back End Project
 
 ## Cheatsheet
 
+Create a .env file with this structure:
+
+DB_NAME = ""
+ADMIN_DB= ""
+PASS_DB = ""
+HOST = "localhost"
+
 Description | Command
 ------------| -------
 Install dependencies | yarn
