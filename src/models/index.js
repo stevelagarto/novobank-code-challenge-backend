@@ -16,10 +16,9 @@ const sequelize = new Sequelize(DB_NAME, ADMIN_DB, PASS_DB, {
 
 const Contact = ContactModel(sequelize, Sequelize)
 
-sequelize.sync({ force: false })
-  .then(() => {
-    console.log('Database & tables created!')
-  })
+sequelize.sync({ force: false }).then(() => {
+  console.log('Database & tables created!')
+})
 
 module.exports = {
   Contact
