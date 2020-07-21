@@ -13,6 +13,13 @@ You can find the Back End repository at [https://github.com/stevelagarto/novoban
 
 ## Cheatsheet
 
+Create a .env file with this structure:
+
+DB_NAME = ""
+ADMIN_DB= ""
+PASS_DB = ""
+HOST = "localhost"
+
 Description | Command
 ------------| -------
 Install dependencies | yarn
